@@ -53,7 +53,7 @@
 char *wlc_nvname(char *keyword);
 //#endif
 
-#if defined(RTAC52U) || defined(RTAC51U) || defined(RTAC1200HP) || defined(RTN56UB1) || defined(RTAC54U) || defined(RTN56UB2) || defined(RTAC1200GA1)  || defined(RTAC1200GU) || defined(RTAC1200) || defined(RTCONFIG_MTK_REP) || defined(RTAC51UP) || defined(RTAC53) || defined(RTAC85P) || defined(RTACRH26) || defined(RMAC2100) || defined(R6800) || defined(RTMIR3G) || defined(RTNEWIFI2) || defined(RTRS1200P) || defined(RTNEWIFI3) || defined(RTHIWIFI4) || defined(RTRM2100) || defined(RTR2100) || defined(RTMIR3P) || defined(RTE8820S) || defined(RTE8820V2) || defined(RTA040WQ) || defined(RTMSG1500) || defined(RTJDC1) || defined(RTMT1300) || defined(RTK2P)
+#if defined(RTAC52U) || defined(RTAC51U) || defined(RTAC1200HP) || defined(RTN56UB1) || defined(RTAC54U) || defined(RTN56UB2) || defined(RTAC1200GA1)  || defined(RTAC1200GU) || defined(RTAC1200) || defined(RTCONFIG_MTK_REP) || defined(RTAC51UP) || defined(RTAC53) || defined(RTAC85P) || defined(RTACRH26) || defined(RMAC2100) || defined(R6800) || defined(RTMIR3G) || defined(RTNEWIFI2) || defined(RTRS1200P) || defined(RTNEWIFI3) || defined(RTHIWIFI4) || defined(RTRM2100) || defined(RTR2100) || defined(RTMIR3P) || defined(RTE8820S) || defined(RTE8820V2) || defined(RTA040WQ) || defined(RTMSG1500) || defined(RTJDC1) || defined(RTMT1300) || defined(RTK2P) || defined(RTWIA3300)
 #define VHT_SUPPORT /* 11AC */
 #endif
 
@@ -1307,7 +1307,7 @@ int gen_ralink_config(int band, int is_iNIC)
 		}
 		fprintf(fp, "NoForwarding=%s\n", tmpstr);
 
-		#if defined(RTA040WQ) || defined(RTMSG1500) || defined(RTMT1300) || defined(RTK2P)
+		#if defined(RTA040WQ) || defined(RTMSG1500) || defined(RTMT1300) || defined(RTK2P) || defined(RTWIA3300)
 		fprintf(fp, "NoForwardingBTNBSSID=%d\n", 0);
 		#else
 		fprintf(fp, "NoForwardingBTNBSSID=%d\n", atoi(str));
@@ -1668,7 +1668,7 @@ int gen_ralink_config(int band, int is_iNIC)
 	{
 		fprintf(fp, "GreenAP=%d\n", 1);
 	}
-#elif defined(RTN14U) || defined(RTAC52U) || defined(RTAC51U) || defined(RTAC51UP) || defined(RTAC53) || defined(RTN11P) || defined(RTN300) || defined(RTN54U) || defined(RTAC1200HP) || defined(RTN56UB1) || defined(RTAC54U) || defined(RTN56UB2) || defined(RTAC1200GA1)  || defined(RTAC1200GU) || defined(RTCONFIG_MTK_REP) || defined(RTMIR3G) || defined(RTNEWIFI2) || defined(RTRS1200P) || defined(RTNEWIFI3) || defined(RTHIWIFI4) || defined(RTRM2100) || defined(RTR2100) || defined(RTMIR3P) || defined(RTE8820S) || defined(RTE8820V2) || defined(RTA040WQ) || defined(RTMSG1500) || defined(RTJDC1) || defined(RTMT1300) || defined(RTK2P)
+#elif defined(RTN14U) || defined(RTAC52U) || defined(RTAC51U) || defined(RTAC51UP) || defined(RTAC53) || defined(RTN11P) || defined(RTN300) || defined(RTN54U) || defined(RTAC1200HP) || defined(RTN56UB1) || defined(RTAC54U) || defined(RTN56UB2) || defined(RTAC1200GA1)  || defined(RTAC1200GU) || defined(RTCONFIG_MTK_REP) || defined(RTMIR3G) || defined(RTNEWIFI2) || defined(RTRS1200P) || defined(RTNEWIFI3) || defined(RTHIWIFI4) || defined(RTRM2100) || defined(RTR2100) || defined(RTMIR3P) || defined(RTE8820S) || defined(RTE8820V2) || defined(RTA040WQ) || defined(RTMSG1500) || defined(RTJDC1) || defined(RTMT1300) || defined(RTK2P) || defined(RTWIA3300)
 	/// MT7620 GreenAP will impact TSSI, force to disable GreenAP here..
 	//  MT7620 GreenAP cause bad site survey result on RTAC52 2G.
 	{
@@ -1687,7 +1687,7 @@ int gen_ralink_config(int band, int is_iNIC)
 		fprintf(fp, "GreenAP=%d\n", 0);
 	}
 #endif
-#if defined(RTA040WQ) || defined(RTMSG1500) || defined(RTMT1300) || defined(RTK2P)
+#if defined(RTA040WQ) || defined(RTMSG1500) || defined(RTMT1300) || defined(RTK2P) || defined(RTWIA3300)
 	fprintf(fp, "DBDC_MODE=%d\n", 1);
 #endif
 
@@ -2602,7 +2602,7 @@ int gen_ralink_config(int band, int is_iNIC)
 			}
 			else {
 				sprintf(prefix_mssid, "wl%d_", band);
-#if defined(RTA040WQ) || defined(RTMSG1500) || defined(RTK2P)
+#if defined(RTA040WQ) || defined(RTMSG1500) || defined(RTK2P) || defined(RTWIA3300)
 				vbw = nvram_safe_get(strcat_r(prefix_mssid, "bw", temp));
 #else
 				vbw = get_bw_via_channel(band, Channel);

@@ -100,4 +100,8 @@ config  MODEL_RTK2P
 	bool "RT-K2P"
 	default n
 
+config  MODEL_RTWIA3300
+	bool "RT-WIA3300"
+	default n
+
 endmenu
